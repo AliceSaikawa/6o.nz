@@ -1,0 +1,12 @@
+{
+  "name": "6o.nz",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "serve": "node scripts/serve.mjs",
+    "verify": "node scripts/verify.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.65.0"
+  }
+}
