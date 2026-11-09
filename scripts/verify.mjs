@@ -136,6 +136,33 @@ async function runChecks(page) {
   }
   results.push("✓ 5 tap targets ≥ 44×44");
 
+  const xLabel = await x.first().evaluate((el) => {
+    const texts = [];
+    const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+    while (walker.nextNode()) {
+      const t = walker.currentNode.textContent.trim();
+      if (t) texts.push(t);
+    }
+    return {
+      hasSvg: el.querySelectorAll("svg").length > 0,
+      texts,
+      ariaLabel: (el.getAttribute("aria-label") || "").trim(),
+    };
+  });
+  if (xLabel.hasSvg) {
+    const redundantLetter = xLabel.texts.some((t) => /^x$/i.test(t));
+    assert(
+      !redundantLetter,
+      `Criterion 6: X control shows logo SVG plus letter label (${xLabel.texts.join(" ") || "empty"})`,
+    );
+  }
+  const accessibleName = [xLabel.ariaLabel, ...xLabel.texts].filter(Boolean).join(" ");
+  assert(
+    /\bx\b/i.test(accessibleName) || /twitter/i.test(accessibleName),
+    `Criterion 6: X control needs an accessible name with X or Twitter; got "${accessibleName}"`,
+  );
+  results.push("✓ 6 X control has no logo+letter-X duplicate");
+
   return results;
 }
 

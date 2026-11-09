@@ -20,4 +20,10 @@ Site purpose: playful self-intro for 斎川有栖 / Alice Saikawa.
 5. **Tap targets**  
    GitHub and X controls are each at least 44×44 CSS pixels.
 
+6. **X control label**  
+   The X link must not show both the X logo SVG and a visible text
+   label that is only the letter X/x (reads as "X x" on mobile Safari).
+   It still needs an accessible name containing X or Twitter
+   (visible text and/or `aria-label`).
+
 Run: `node scripts/verify.mjs`
