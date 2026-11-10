@@ -322,6 +322,45 @@ body::before {
   }
 }
 
+@media print {
+  body::before,
+  .sky {
+    display: none !important;
+  }
+
+  body {
+    background: #fff !important;
+    color: var(--ink);
+    min-height: auto;
+  }
+
+  .page {
+    min-height: auto;
+    padding: 1rem;
+  }
+
+  .action,
+  .action-github,
+  .action-x {
+    background: #fff !important;
+    color: var(--ink) !important;
+    border: 2px solid var(--ink) !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+
+  .action-icon {
+    color: var(--ink) !important;
+  }
+
+  .actions a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8125rem;
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
