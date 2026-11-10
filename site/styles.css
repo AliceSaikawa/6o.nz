@@ -273,6 +273,41 @@ body::before {
   }
 }
 
+@media (max-height: 420px) {
+  .page {
+    align-content: start;
+    padding: clamp(0.75rem, 3vw, 1.25rem) clamp(1rem, 4vw, 1.5rem) 1rem;
+  }
+
+  .hero {
+    gap: 0.65rem;
+  }
+
+  .brand {
+    font-size: clamp(1.65rem, min(9vw, 14dvh), 2.75rem);
+    line-height: 1.08;
+  }
+
+  .brand-en {
+    font-size: clamp(1rem, 3.5vw, 1.25rem);
+  }
+
+  .lede {
+    font-size: 0.95rem;
+    line-height: 1.45;
+  }
+
+  .actions {
+    margin-top: 0;
+    gap: 0.55rem;
+  }
+
+  .action {
+    min-height: 44px;
+    padding: 0.55rem 1rem;
+  }
+}
+
 @media (max-height: 500px) {
   .blob-b {
     bottom: -18%;
