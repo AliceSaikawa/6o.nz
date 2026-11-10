@@ -127,11 +127,16 @@ body::before {
   margin: 0;
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(2.6rem, 12vw, 4.2rem);
+  font-size: clamp(2.6rem, min(12vw, 18dvh), 4.2rem);
   line-height: 1.05;
   letter-spacing: 0.02em;
   color: var(--ink);
   animation: pop-in 0.8s cubic-bezier(0.2, 0.9, 0.25, 1.2) both;
+}
+
+.brand-part {
+  display: inline-block;
+  white-space: nowrap;
 }
 
 .brand-en {
@@ -151,6 +156,17 @@ body::before {
   line-height: 1.7;
   color: var(--ink-soft);
   animation: pop-in 0.8s cubic-bezier(0.2, 0.9, 0.25, 1.2) 0.16s both;
+  word-break: auto-phrase;
+}
+
+.phrase-nowrap {
+  white-space: nowrap;
+}
+
+.lede-en {
+  display: inline-block;
+  max-width: 100%;
+  text-wrap: pretty;
 }
 
 .lede strong {

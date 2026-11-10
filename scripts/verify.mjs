@@ -67,24 +67,16 @@ async function runChecks(page) {
   await brandEn.first().waitFor({ state: "visible", timeout: 5000 });
 
   const inViewport = await page.evaluate(() => {
-    const visible = (text) => {
-      const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
-      const hits = [];
-      while (walker.nextNode()) {
-        if (walker.currentNode.textContent.includes(text)) {
-          const el = walker.currentNode.parentElement;
-          if (!el) continue;
-          const r = el.getBoundingClientRect();
-          if (r.bottom > 0 && r.top < window.innerHeight && r.width > 0 && r.height > 0) {
-            hits.push(true);
-          }
-        }
-      }
-      return hits.length > 0;
+    const elementVisible = (el) => {
+      if (!el) return false;
+      const r = el.getBoundingClientRect();
+      return r.bottom > 0 && r.top < window.innerHeight && r.width > 0 && r.height > 0;
     };
+  const brand = document.querySelector(".brand");
+    const brandEn = document.querySelector(".brand-en");
     return {
-      ja: visible("斎川有栖"),
-      en: visible("Alice Saikawa"),
+      ja: elementVisible(brand) && (brand?.textContent || "").includes("斎川有栖"),
+      en: elementVisible(brandEn) && (brandEn?.textContent || "").includes("Alice Saikawa"),
     };
   });
   assert(inViewport.ja && inViewport.en, "Criterion 1: both names must be in the first mobile viewport");
