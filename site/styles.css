@@ -195,12 +195,12 @@ body::before {
 
 .action-github {
   background: var(--accent);
-  color: #fff;
+  color: var(--ink);
   box-shadow: var(--shadow);
 }
 
 .action-github:hover {
-  background: var(--accent-deep);
+  background: var(--accent);
   transform: translateY(-2px) rotate(-1deg);
 }
 
