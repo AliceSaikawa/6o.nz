@@ -190,7 +190,7 @@ body::before {
 }
 
 .action:focus-visible {
-  outline: 3px solid var(--mint);
+  outline: 3px solid var(--ink);
   outline-offset: 3px;
 }
 
