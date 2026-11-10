@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff0f5"/>
+      <stop offset="48%" stop-color="#e8fff8"/>
+      <stop offset="100%" stop-color="#ffe8d6"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="980" cy="120" r="160" fill="#ffb3cd" opacity="0.55"/>
+  <circle cx="180" cy="520" r="140" fill="#9af0d8" opacity="0.5"/>
+  <circle cx="720" cy="340" r="90" fill="#ffc9a3" opacity="0.45"/>
+  <text x="96" y="280" font-family="system-ui,sans-serif" font-size="88" font-weight="700" fill="#3a2a32">&#x6589;&#x5DDD;&#x6709;&#x6816;</text>
+  <text x="96" y="360" font-family="system-ui,sans-serif" font-size="44" font-weight="500" fill="#b3265c">Alice Saikawa</text>
+  <text x="96" y="440" font-family="system-ui,sans-serif" font-size="32" fill="#6b5560">Java / TypeScript &#x30B8;&#x30E5;&#x30CB;&#x30A2;&#x30A8;&#x30F3;&#x30B8;&#x30CB;&#x30A2;</text>
+  <text x="96" y="490" font-family="system-ui,sans-serif" font-size="28" fill="#6b5560">Junior Java / TypeScript engineer - 6o.nz</text>
+</svg>

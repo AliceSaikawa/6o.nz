@@ -6,6 +6,7 @@
   --ink-soft: #6b5560;
   --accent: #ff7aa2;
   --accent-deep: #e85a88;
+  --brand-en: #b3265c;
   --mint: #5ecfb5;
   --cream: #fff9fb;
   --line: rgba(232, 90, 136, 0.18);
@@ -126,11 +127,16 @@ body::before {
   margin: 0;
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(2.6rem, 12vw, 4.2rem);
+  font-size: clamp(2.6rem, min(12vw, 18dvh), 4.2rem);
   line-height: 1.05;
   letter-spacing: 0.02em;
   color: var(--ink);
   animation: pop-in 0.8s cubic-bezier(0.2, 0.9, 0.25, 1.2) both;
+}
+
+.brand-part {
+  display: inline-block;
+  white-space: nowrap;
 }
 
 .brand-en {
@@ -138,7 +144,7 @@ body::before {
   font-family: var(--font-display);
   font-size: clamp(1.15rem, 4.6vw, 1.55rem);
   font-weight: 500;
-  color: var(--accent-deep);
+  color: var(--brand-en);
   letter-spacing: 0.04em;
   animation: pop-in 0.8s cubic-bezier(0.2, 0.9, 0.25, 1.2) 0.08s both;
 }
@@ -150,6 +156,17 @@ body::before {
   line-height: 1.7;
   color: var(--ink-soft);
   animation: pop-in 0.8s cubic-bezier(0.2, 0.9, 0.25, 1.2) 0.16s both;
+  word-break: auto-phrase;
+}
+
+.phrase-nowrap {
+  white-space: nowrap;
+}
+
+.lede-en {
+  display: inline-block;
+  max-width: 100%;
+  text-wrap: pretty;
 }
 
 .lede strong {
@@ -189,18 +206,18 @@ body::before {
 }
 
 .action:focus-visible {
-  outline: 3px solid var(--mint);
+  outline: 3px solid var(--ink);
   outline-offset: 3px;
 }
 
 .action-github {
   background: var(--accent);
-  color: #fff;
+  color: var(--ink);
   box-shadow: var(--shadow);
 }
 
 .action-github:hover {
-  background: var(--accent-deep);
+  background: var(--accent);
   transform: translateY(-2px) rotate(-1deg);
 }
 
@@ -253,6 +270,94 @@ body::before {
   50% {
     transform: scale(1.25);
     opacity: 0.7;
+  }
+}
+
+@media (max-height: 420px) {
+  .page {
+    align-content: start;
+    padding: clamp(0.75rem, 3vw, 1.25rem) clamp(1rem, 4vw, 1.5rem) 1rem;
+  }
+
+  .hero {
+    gap: 0.65rem;
+  }
+
+  .brand {
+    font-size: clamp(1.65rem, min(9vw, 14dvh), 2.75rem);
+    line-height: 1.08;
+  }
+
+  .brand-en {
+    font-size: clamp(1rem, 3.5vw, 1.25rem);
+  }
+
+  .lede {
+    font-size: 0.95rem;
+    line-height: 1.45;
+  }
+
+  .actions {
+    margin-top: 0;
+    gap: 0.55rem;
+  }
+
+  .action {
+    min-height: 44px;
+    padding: 0.55rem 1rem;
+  }
+}
+
+@media (max-height: 500px) {
+  .blob-b {
+    bottom: -18%;
+    left: -22%;
+    opacity: 0.45;
+  }
+
+  .blob-c {
+    top: 62%;
+    left: 72%;
+    opacity: 0.35;
+  }
+}
+
+@media print {
+  body::before,
+  .sky {
+    display: none !important;
+  }
+
+  body {
+    background: #fff !important;
+    color: var(--ink);
+    min-height: auto;
+  }
+
+  .page {
+    min-height: auto;
+    padding: 1rem;
+  }
+
+  .action,
+  .action-github,
+  .action-x {
+    background: #fff !important;
+    color: var(--ink) !important;
+    border: 2px solid var(--ink) !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+
+  .action-icon {
+    color: var(--ink) !important;
+  }
+
+  .actions a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8125rem;
+    font-weight: 400;
+    letter-spacing: 0;
   }
 }
 
